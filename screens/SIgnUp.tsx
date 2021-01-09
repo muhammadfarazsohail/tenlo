@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useState} from 'react';
-import { StyleSheet,Image, Button,Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet,Image, Button,Alert, Switch, TouchableOpacity } from 'react-native';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 
 import EditScreenInfo from '../components/EditScreenInfo';
@@ -11,6 +11,8 @@ export default function SignUp() {
      const [Password, setPassword] = useState('');
      const [FirstName, setFirstName] = useState('');
      const [LastName, setLastName] = useState('');
+     const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   return (
     <ScrollView>
     <View style={styles.container}>
@@ -60,6 +62,13 @@ export default function SignUp() {
     // onChangeText={(password) => setPassword(password)}
         />
         </View>
+        <Switch
+        trackColor={{ false: "#767577", true: "#C8F902" }}
+        thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      /><Text>Landlord</Text>
 
 <TouchableOpacity style={styles.loginBtn}>
   <Text style={styles.loginText}>Sign Up</Text>

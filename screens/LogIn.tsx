@@ -10,6 +10,7 @@ export default function LogIn() {
   const [Email, setEmail] = useState('');
      const [Password, setPassword] = useState('');
   return (
+    <ScrollView>
     <View style={styles.container}>
     <View >
       <Image style={styles.tinyLogo} source={require('../assets/images/logoG.png')} />
@@ -47,6 +48,7 @@ export default function LogIn() {
     
   
     </View>
+    </ScrollView>
   );
 }
 {/*backgroundColor: "#fff", */}

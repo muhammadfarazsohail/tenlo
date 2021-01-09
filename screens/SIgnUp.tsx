@@ -12,6 +12,7 @@ export default function SignUp() {
      const [FirstName, setFirstName] = useState('');
      const [LastName, setLastName] = useState('');
   return (
+    <ScrollView>
     <View style={styles.container}>
       <Image style={styles.tinyLogo} source={require('../assets/images/logoG.png')} />
       {/* <Text style={styles.title}>Sign Up</Text> */}
@@ -64,6 +65,7 @@ export default function SignUp() {
   <Text style={styles.loginText}>Sign Up</Text>
 </TouchableOpacity>
     </View>
+    </ScrollView>
   );
 }
 

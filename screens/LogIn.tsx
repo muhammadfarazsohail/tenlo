@@ -7,9 +7,10 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 
 export default function LogIn() {
-  const [email, setEmail] = useState('');
-     const [password, setPassword] = useState('');
+  const [Email, setEmail] = useState('');
+     const [Password, setPassword] = useState('');
   return (
+    <ScrollView>
     <View style={styles.container}>
     <View >
       <Image style={styles.tinyLogo} source={require('../assets/images/logoG.png')} />
@@ -22,7 +23,7 @@ export default function LogIn() {
       <TextInput style={styles.TextInput}
         placeholder="Email"
         placeholderTextColor="#003f5c"
-        onChangeText={(email) => setEmail(email)}
+        onChangeText={(Email) => setEmail(Email)}
         />
         </View>
 {/* Password placeholder*/}
@@ -31,7 +32,7 @@ export default function LogIn() {
         placeholder="Password"
         placeholderTextColor="#003f5c"
     secureTextEntry={true}
-    onChangeText={(password) => setPassword(password)}
+    onChangeText={(Password) => setPassword(Password)}
         />
         </View>
 
@@ -41,20 +42,21 @@ export default function LogIn() {
 </TouchableOpacity>
 
 <TouchableOpacity style={styles.loginBtn}>
-  <Text style={styles.loginText}>LOGIN</Text>
+  <Text style={styles.loginText}>Log In</Text>
 </TouchableOpacity>
    
     
-    
+  
     </View>
+    </ScrollView>
   );
 }
-
+{/*backgroundColor: "#fff", */}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: "#fff",
+    
     justifyContent: 'center',
   },
   title: {
@@ -91,6 +93,9 @@ const styles = StyleSheet.create({
   height: 45,
   marginBottom: 20,
   alignItems: "center",
+},
+loginText:{
+  color:'#003f5c'
 },
 
 TextInput: {

@@ -45,16 +45,16 @@ export default function LogIn() {
 </TouchableOpacity>
    
     
-    
+  
     </View>
   );
 }
-
+{/*backgroundColor: "#fff", */}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: "#fff",
+    
     justifyContent: 'center',
   },
   title: {
@@ -91,6 +91,9 @@ const styles = StyleSheet.create({
   height: 45,
   marginBottom: 20,
   alignItems: "center",
+},
+loginText:{
+  color:'#003f5c'
 },
 
 TextInput: {

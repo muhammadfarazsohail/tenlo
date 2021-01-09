@@ -7,7 +7,7 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 
 export default function SignUp() {
-  const [Email, setEmail] = useState('');
+     const [Email, setEmail] = useState('');
      const [Password, setPassword] = useState('');
      const [FirstName, setFirstName] = useState('');
      const [LastName, setLastName] = useState('');
@@ -41,7 +41,7 @@ export default function SignUp() {
       <TextInput style={styles.TextInput}
         placeholder="Email"
         placeholderTextColor="#003f5c"
-        onChangeText={(email) => setEmail(email)}
+        onChangeText={(Email) => setEmail(Email)}
         />
         </View>
 {/* Password placeholder*/}
@@ -50,7 +50,7 @@ export default function SignUp() {
         placeholder="Password"
         placeholderTextColor="#003f5c"
     secureTextEntry={true}
-    onChangeText={(password) => setPassword(password)}
+    onChangeText={(Password) => setPassword(Password)}
         />
         </View>
         {/* confirm Password  placeholder*/}

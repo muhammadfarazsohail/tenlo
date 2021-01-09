@@ -7,8 +7,8 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 
 export default function LogIn() {
-  const [email, setEmail] = useState('');
-     const [password, setPassword] = useState('');
+  const [Email, setEmail] = useState('');
+     const [Password, setPassword] = useState('');
   return (
     <View style={styles.container}>
     <View >
@@ -22,7 +22,7 @@ export default function LogIn() {
       <TextInput style={styles.TextInput}
         placeholder="Email"
         placeholderTextColor="#003f5c"
-        onChangeText={(email) => setEmail(email)}
+        onChangeText={(Email) => setEmail(Email)}
         />
         </View>
 {/* Password placeholder*/}
@@ -31,7 +31,7 @@ export default function LogIn() {
         placeholder="Password"
         placeholderTextColor="#003f5c"
     secureTextEntry={true}
-    onChangeText={(password) => setPassword(password)}
+    onChangeText={(Password) => setPassword(Password)}
         />
         </View>
 
@@ -41,7 +41,7 @@ export default function LogIn() {
 </TouchableOpacity>
 
 <TouchableOpacity style={styles.loginBtn}>
-  <Text style={styles.loginText}>LOGIN</Text>
+  <Text style={styles.loginText}>Log In</Text>
 </TouchableOpacity>
    
     

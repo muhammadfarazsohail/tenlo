@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {useState} from 'react';
+import * as firebase from 'firebase';
 import { StyleSheet,Image, Button,Alert, TouchableOpacity } from 'react-native';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 
@@ -105,3 +106,19 @@ TextInput: {
   marginLeft: 20,
 },
 });
+
+ {/* // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional */}
+  var firebaseConfig = {
+    apiKey: "AIzaSyCRFEKyWJ3ajV-TiXCaXtD0DdqO3g75CyA",
+    authDomain: "tenlo-project.firebaseapp.com",
+    databaseURL: "https://tenlo-project-default-rtdb.firebaseio.com",
+    projectId: "tenlo-project",
+    storageBucket: "tenlo-project.appspot.com",
+    messagingSenderId: "826972459172",
+    appId: "1:826972459172:web:9e56eaa69a32eeccf8d631",
+    measurementId: "G-DLXVLF3G3F"
+  };
+  {/* // Initialize Firebase */}
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();

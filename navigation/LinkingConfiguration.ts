@@ -18,6 +18,20 @@ export default {
           },
         },
       },
+      Tenants: {
+        screens: {
+          TabOne: {
+            screens: {
+              Tenants: 'Tenants',
+            },
+          },
+          TabTwo: {
+            screens: {
+              Postings: 'Postings',
+            },
+          },
+        },
+      },
       NotFound: '*',
     },
   },

@@ -6,6 +6,7 @@ import { ScrollView, TextInput } from 'react-native-gesture-handler';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
 export default function Landlord(){
@@ -13,7 +14,11 @@ export default function Landlord(){
 
     return(
         <ScrollView>
-            
+            <SafeAreaProvider>
+                <Text>
+                   I am landlord page
+                </Text>
+            </SafeAreaProvider>
         </ScrollView>
     );
 

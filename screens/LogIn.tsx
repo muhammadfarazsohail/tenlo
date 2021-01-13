@@ -6,10 +6,13 @@ import { ScrollView, TextInput } from 'react-native-gesture-handler';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import { useLinkProps } from '@react-navigation/native';
+import Navigation from '../navigation';
 
-export default function LogIn() {
+export default function LogIn(props) {
   const [Email, setEmail] = useState('');
      const [Password, setPassword] = useState('');
+
   return (
     <ScrollView>
     <View style={styles.container}>
@@ -19,6 +22,7 @@ export default function LogIn() {
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       {/* <EditScreenInfo path="/screens/LogIn.tsx" /> */}
       </View>
+      
       {/* Email placeholder*/}
       <View style={styles.inputView}>
       <TextInput style={styles.TextInput}
@@ -42,7 +46,7 @@ export default function LogIn() {
   <Text style={styles.forgot_button}>Forgot Password?</Text>
 </TouchableOpacity>
 
-<TouchableOpacity style={styles.loginBtn}>
+<TouchableOpacity style={styles.loginBtn} onPress={()=>props.navigation.navigate('Landlord')}>
   <Text style={styles.loginText}>Log In</Text>
 </TouchableOpacity>
    

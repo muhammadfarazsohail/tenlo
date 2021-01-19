@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useState} from 'react';
 import * as firebase from 'firebase';
-import { StyleSheet,Image, Button,Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet,Image, Button,Alert, TouchableOpacity, Switch } from 'react-native';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 
 import EditScreenInfo from '../components/EditScreenInfo';
@@ -9,9 +9,32 @@ import { Text, View } from '../components/Themed';
 import { useLinkProps } from '@react-navigation/native';
 import Navigation from '../navigation';
 
-export default function LogIn(props) {
+export default function LogIn({navigation,route}) {
   const [Email, setEmail] = useState('');
      const [Password, setPassword] = useState('');
+     const [isEnabled, setIsEnabled] = useState(false);
+     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+    // console.log(route);
+
+     function loginReq(Email,Password,bval){
+
+     
+
+
+      if(bval){
+        //login for landlord part goes here
+        navigation.navigate('Landlords',{id:100});
+      }
+      else{
+        //login for tenants goes here
+navigation.navigate('Tenants',{id:100});
+
+      }
+
+     }
+
+    
 
   return (
     <ScrollView>
@@ -41,12 +64,21 @@ export default function LogIn(props) {
         />
         </View>
 
+        
 
         <TouchableOpacity>
   <Text style={styles.forgot_button}>Forgot Password?</Text>
 </TouchableOpacity>
 
-<TouchableOpacity style={styles.loginBtn} onPress={()=>props.navigation.navigate('Landlord')}>
+<Switch
+        trackColor={{ false: "#767577", true: "#C8F902" }}
+        thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      /><Text>Landlord</Text>
+
+<TouchableOpacity style={styles.loginBtn} onPress={()=>{ loginReq(Email,Password,isEnabled)}}>
   <Text style={styles.loginText}>Log In</Text>
 </TouchableOpacity>
    
@@ -111,18 +143,18 @@ TextInput: {
 },
 });
 
- {/* // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional */}
-  var firebaseConfig = {
-    apiKey: "AIzaSyCRFEKyWJ3ajV-TiXCaXtD0DdqO3g75CyA",
-    authDomain: "tenlo-project.firebaseapp.com",
-    databaseURL: "https://tenlo-project-default-rtdb.firebaseio.com",
-    projectId: "tenlo-project",
-    storageBucket: "tenlo-project.appspot.com",
-    messagingSenderId: "826972459172",
-    appId: "1:826972459172:web:9e56eaa69a32eeccf8d631",
-    measurementId: "G-DLXVLF3G3F"
-  };
-  {/* // Initialize Firebase */}
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+//  {/* // Your web app's Firebase configuration
+//   // For Firebase JS SDK v7.20.0 and later, measurementId is optional */}
+//   var firebaseConfig = {
+//     apiKey: "AIzaSyCRFEKyWJ3ajV-TiXCaXtD0DdqO3g75CyA",
+//     authDomain: "tenlo-project.firebaseapp.com",
+//     databaseURL: "https://tenlo-project-default-rtdb.firebaseio.com",
+//     projectId: "tenlo-project",
+//     storageBucket: "tenlo-project.appspot.com",
+//     messagingSenderId: "826972459172",
+//     appId: "1:826972459172:web:9e56eaa69a32eeccf8d631",
+//     measurementId: "G-DLXVLF3G3F"
+//   };
+//   {/* // Initialize Firebase */}
+//   firebase.initializeApp(firebaseConfig);
+//   firebase.analytics();

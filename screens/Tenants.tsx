@@ -9,16 +9,25 @@ import { Text, View } from '../components/Themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
-export default function Tenants(){
+export default function Tenants({data}){//{navigation,route}
 
+   
+
+//console.log(route.params.Email);
+//console.log(data);
 
     return(
         <ScrollView>
             <SafeAreaProvider>
-                <Text>Im tenants page</Text>
+                <Text>Landlord: {data.id} </Text>
+                <Text>Home Details: {data.id} </Text>
+                <Text>Address: {data.id} </Text>
             </SafeAreaProvider>
+
+           
         </ScrollView>
         
     );
 
 }
+

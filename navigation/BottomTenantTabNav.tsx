@@ -11,8 +11,9 @@ import BottomTabNavigator from './BottomTabNavigator';
 
 const TenBottomTab = createBottomTabNavigator<BottomTenantTabParamList>();
 
-export default function BottomTenantTabNav(){
+export default function BottomTenantTabNav({route,props}){
   const colorScheme = useColorScheme();
+const data=route.params;
     return(
         <TenBottomTab.Navigator
         initialRouteName="Tenants"
@@ -20,7 +21,8 @@ export default function BottomTenantTabNav(){
 {/*Nav Screens */}
 <TenBottomTab.Screen
         name="Tenants"
-        component={TenantsNavigator}
+        // component={TenantsNavigator}
+        children={()=><TenantsNavigator data={data}/>}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
@@ -48,12 +50,13 @@ function TabBarIcon(props: { name: string; color: string }) {
   // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
   const TabOneStack = createStackNavigator<TabOneTenantParamList>();
   
-  function TenantsNavigator() {
+  function TenantsNavigator({data}) {
     return (
       <TabOneStack.Navigator>
         <TabOneStack.Screen
           name="TenantScreen"
-          component={Tenants}
+          // component={Tenants}
+          children={()=><Tenants data={data}/>}
           options={{ headerTitle: 'Log In' }}
         />
       </TabOneStack.Navigator>

@@ -19,7 +19,7 @@ export default function Tenants({data}){//{navigation,route}
     return(
         <ScrollView>
             <SafeAreaProvider>
-                <Text>Landlord: {data.id} </Text>
+                <Text>Tenants: {data.id} </Text>
                 <Text>Home Details: {data.id} </Text>
                 <Text>Address: {data.id} </Text>
             </SafeAreaProvider>

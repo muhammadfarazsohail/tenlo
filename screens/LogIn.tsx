@@ -24,11 +24,11 @@ export default function LogIn({navigation,route}) {
 
       if(bval){
         //login for landlord part goes here
-        navigation.navigate('Landlords',{id:100});
+        navigation.navigate('Landlord',{id:100});
       }
       else{
         //login for tenants goes here
-navigation.navigate('Tenants',{id:100});
+        navigation.navigate('Tenants',{id:100});
 
       }
 

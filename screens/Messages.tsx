@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useState} from 'react';
 import * as firebase from 'firebase';
-import { Dimensions, StyleSheet,Image, Button,Alert, TouchableOpacity } from 'react-native';
+import { Dimensions, StyleSheet,Image, Button,Alert, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 
 import EditScreenInfo from '../components/EditScreenInfo';
@@ -13,33 +13,50 @@ export default function Messages({props}){
     const [Msg, setMsg] = useState('');
 
     return(
+        <KeyboardAvoidingView behavior = {Platform.OS == "ios" ? "padding" : "height"} style={styles.keyboard}>
         <ScrollView>
             <View style={styles.Spacing}/>
-            <View style={styles.inputView}>
-              <TextInput style={styles.TextInput}
+        </ScrollView>
+        <View style={styles.container}>
+              <TextInput style={styles.inputView}
                 value={Msg}
                 onChangeText={(Msg) => setMsg(Msg)}
                 blurOnSubmit={false}
-                onSubmitEditing={() => console.log(Msg)}
                 placeholder="Type a message"
                 returnKeyType="send"
               />
-            </View>
-        </ScrollView>
-        
+            <TouchableOpacity style={styles.submitButton} onPress={()=>{console.log(Msg); setMsg("")}}>
+                <Text style={styles.submitButtonText}> SEND </Text>
+            </TouchableOpacity>
+        </View>
+        </KeyboardAvoidingView>
     );
 
 }
 
 const styles = StyleSheet.create({
+    container: {
+        borderTopWidth: 1,
+        minWidth: "100%",
+        borderColor: "#cccccc",
+        height: 44,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        backgroundColor: "#fff"     
+      },
+    keyboard: {
+        flex: 1,
+        justifyContent: 'center',
+        flexDirection: 'column',
+      },
     inputView: {
-        flexDirection: 'row',
-        alignSelf: 'flex-start',
-        padding: 10,
+        margin: 2,
+        paddingLeft: 15,
+        flex: 1,
         height: 40,
-        width: width - 70,
-        backgroundColor: '#D0F0C0',
-        margin: 10,
+        padding: 10,
+        fontSize: 14,
+        fontWeight: "400",
         shadowColor: '#3d3d3d',
         shadowRadius: 2,
         shadowOpacity: 0.5,
@@ -48,7 +65,25 @@ const styles = StyleSheet.create({
         flex: 1,
       },
       Spacing: {
-        height: height - 60,
+        height: height - 50,
       },
+      submitButtonText: {
+        color: "#0a9ffc",
+        fontSize: 14,
+        fontWeight: "500"
+      },
+    
+      submitButton: {
+        backgroundColor: "#D0F0C0",
+        padding: 10,
+        height: 40,
+        alignItems: "center",
+        justifyContent: "center"
+      },
+      loginText:{
+        color:'#003f5c',
+        alignItems:'center'
+      },
+      
 
 });

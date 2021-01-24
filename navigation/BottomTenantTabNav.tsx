@@ -6,10 +6,11 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import Tenants from '../screens/Tenants';
 import Postings from '../screens/Postings';
+import ChatRoom from '../screens/ChatRoom';
 import { BottomTenantTabParamList, TabOneParamList, TabTwoParamList, TabOneTenantParamList,TabTwoPostingParamList } from '../types';
 import BottomTabNavigator from './BottomTabNavigator';
 
-const TenBottomTab = createBottomTabNavigator<BottomTenantTabParamList>();
+const TenBottomTab = createBottomTabNavigator(); //<BottomTenantTabParamList>
 
 export default function BottomTenantTabNav({route,props}){
   const colorScheme = useColorScheme();
@@ -27,9 +28,16 @@ const data=route.params;
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
       />
-      <TenBottomTab.Screen
+      {/* <TenBottomTab.Screen
         name="Postings"
         component={PostingNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      /> */}
+       <TenBottomTab.Screen
+        name="Chats"
+        component={ChatRoomNav}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
@@ -77,3 +85,16 @@ function TabBarIcon(props: { name: string; color: string }) {
     );
   }
   
+  const TabThreeStack = createStackNavigator();
+
+function ChatRoomNav() {
+  return (
+    <TabThreeStack.Navigator>
+      <TabThreeStack.Screen
+        name="ChatRoomScreen"
+        component={ChatRoom}
+        options={{ headerTitle: 'ChatRoom' }}
+      />
+    </TabThreeStack.Navigator>
+  );
+}

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useState} from 'react';
-import * as firebase from 'firebase';
+//import * as firebase from 'firebase';
 import { StyleSheet,Image, Button,Alert, TouchableOpacity } from 'react-native';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 

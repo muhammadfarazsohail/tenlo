@@ -70,6 +70,7 @@ export default function LogIn({navigation,route}) {
   <Text style={styles.forgot_button}>Forgot Password?</Text>
 </TouchableOpacity>
 
+{/*switch to shift from tenant to landlord */}
 <Switch
         trackColor={{ false: "#767577", true: "#C8F902" }}
         thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}

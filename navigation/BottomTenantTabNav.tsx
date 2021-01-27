@@ -25,7 +25,7 @@ const data=route.params;
         // component={TenantsNavigator}
         children={()=><TenantsNavigator data={data}/>}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="person-circle-sharp" color={color} />,
         }}
       />
       {/* <TenBottomTab.Screen
@@ -39,7 +39,7 @@ const data=route.params;
         name="Chats"
         component={ChatRoomNav}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="chatbox-ellipses-outline" color={color} />,
         }}
       />
         </TenBottomTab.Navigator>

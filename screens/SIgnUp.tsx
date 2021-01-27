@@ -12,6 +12,8 @@ import { ScrollView, TextInput } from "react-native-gesture-handler";
 import firebase from "firebase";
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
+//import * from 'react-native-icons'
+
 
 function writeUserData(fname, lname, email, passwd, isEnabled) {
   let actualUser = "tenants";

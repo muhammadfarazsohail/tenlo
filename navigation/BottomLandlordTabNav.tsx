@@ -23,7 +23,7 @@ export default function BottomLandlordTabNav() {
         name="Landlord"
         component={LandlordNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="person-circle-outline" color={color} />,
         }}
       />
       {/* <BottomTab.Screen
@@ -37,7 +37,7 @@ export default function BottomLandlordTabNav() {
         name="Chats"
         component={ChatRoomNav}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="chatbox-ellipses-outline" color={color} />,
         }}
       />
     </BottomTab.Navigator>

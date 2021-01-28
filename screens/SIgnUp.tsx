@@ -13,27 +13,76 @@ import firebase from "firebase";
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
 //import * from 'react-native-icons'
+import EmailValidator from "email-validator";
 
-
-function writeUserData(fname, lname, email, passwd, isEnabled) {
+function writeUserData(fname, lname, email, passwd, conPassword, isEnabled) {
   let actualUser = "tenants";
   if (isEnabled === true) actualUser = "landlords";
+  if (!EmailValidator.validate(email)) {
+    Alert.alert("Please enter a valid email");
+    return;
+  }
+  if (fname.length == 0) {
+    Alert.alert("Please enter a first name");
+    return;
+  }
+  if (lname.length == 0) {
+    Alert.alert("Please enter a last name");
+    return;
+  }
+  if (passwd.length <= 3) {
+    Alert.alert("Password must be of length 4 or greater");
+    return;
+  }
+  if (conPassword !== passwd) {
+    Alert.alert("Password and confirmation of password must be equal");
+    return;
+  }
 
-  firebase
-    .database()
-    .ref("Users/" + actualUser + "/" + email)
-    .set({
-      fname,
-      lname,
-      email,
-      passwd,
-    })
-    .then((data) => {
-      //success callback
-      console.log("data ", data);
+  // Check if user already exists in the database
+  let doesUserExist = false;
+  let query = firebase.database().ref("Users/" + actualUser);
+  query
+    .once("value")
+    .then(function (snapshot) {
+      snapshot.forEach((data) => {
+        // Key is the unique value for each entry under which information users is present
+        let key = data.key;
+        // Grab the email from each user
+        let emailData = data.val().email;
+        if (emailData === email) {
+          // User found in database
+          doesUserExist = true;
+          // The following return breaks out of the forEach (we don't want to continue iterating after we found the email)
+          return true;
+        }
+        console.log(emailData);
+      });
+
+      if (doesUserExist) {
+        // Separate for landlord and tenants or in other words, the same email can be used to register as a tenant
+        // and a landlord, but the same email cannot be used to register as more than one tenant or landlord
+        Alert.alert("User with this email already exists");
+        return;
+      }
+      query
+        .push({
+          fname,
+          lname,
+          email,
+          passwd,
+        })
+        .then((data) => {
+          //success callback
+          console.log("data ", data);
+          Alert.alert("Registration Successful!");
+        })
+        .catch((error) => {
+          //error callback
+          console.log("error ", error);
+        });
     })
     .catch((error) => {
-      //error callback
       console.log("error ", error);
     });
 }
@@ -41,6 +90,7 @@ function writeUserData(fname, lname, email, passwd, isEnabled) {
 export default function SignUp() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [conPassword, setCPassword] = useState("");
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   const [isEnabled, setIsEnabled] = useState(false);
@@ -103,7 +153,7 @@ export default function SignUp() {
             placeholder="Confirm Password"
             placeholderTextColor="#003f5c"
             secureTextEntry={true}
-            // onChangeText={(password) => setPassword(password)}
+            onChangeText={(conPassword) => setCPassword(conPassword)}
           />
         </View>
         <Switch
@@ -118,7 +168,14 @@ export default function SignUp() {
         <TouchableOpacity
           style={styles.loginBtn}
           onPress={() => {
-            writeUserData(FirstName, LastName, Email, Password, isEnabled);
+            writeUserData(
+              FirstName,
+              LastName,
+              Email,
+              Password,
+              conPassword,
+              isEnabled
+            );
           }}
         >
           <Text style={styles.loginText}>Sign Up</Text>

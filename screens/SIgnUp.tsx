@@ -16,8 +16,8 @@ import { Text, View } from "../components/Themed";
 import EmailValidator from "email-validator";
 
 function writeUserData(fname, lname, email, passwd, conPassword, isEnabled) {
-  let actualUser = "tenants";
-  if (isEnabled === true) actualUser = "landlords";
+  let userType = "tenant";
+  if (isEnabled === true) userType = "landlord";
   if (!EmailValidator.validate(email)) {
     Alert.alert("Please enter a valid email");
     return;
@@ -41,7 +41,7 @@ function writeUserData(fname, lname, email, passwd, conPassword, isEnabled) {
 
   // Check if user already exists in the database
   let doesUserExist = false;
-  let query = firebase.database().ref("Users/" + actualUser);
+  let query = firebase.database().ref("Users/");
   query
     .once("value")
     .then(function (snapshot) {
@@ -71,6 +71,7 @@ function writeUserData(fname, lname, email, passwd, conPassword, isEnabled) {
           lname,
           email,
           passwd,
+          userType,
         })
         .then((data) => {
           //success callback

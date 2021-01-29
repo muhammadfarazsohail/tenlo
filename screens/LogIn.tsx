@@ -25,8 +25,8 @@ export default function LogIn({ navigation, route }) {
   // console.log(route);
 
   function loginReq(Email, Password, bval) {
-    let actualUser = "tenants";
-    if (bval === true) actualUser = "landlords";
+    let userType = "tenant";
+    if (bval === true) userType = "landlord";
 
     // Check if email and password are valid
     if (!EmailValidator.validate(Email)) {
@@ -42,7 +42,9 @@ export default function LogIn({ navigation, route }) {
     // Check is user exists in the database
     let isUser = false;
     let isCorrectPass = false;
-    let query = firebase.database().ref("Users/" + actualUser);
+    // Initially userType because we don't it to give false alerts.
+    let getType = userType;
+    let query = firebase.database().ref("Users/");
     query
       .once("value")
       .then(function (snapshot) {
@@ -54,11 +56,20 @@ export default function LogIn({ navigation, route }) {
           if (emailData === Email) {
             if (data.val().passwd === Password) isCorrectPass = true;
             isUser = true;
+            // To ensure a tenant does not login as a landlord and vice versa
+            getType = data.val().userType;
             // The following return breaks out of the forEach (we don't want to continue iterating after we found the email)
             return true;
           }
           console.log(emailData);
         });
+
+        if (getType !== userType) {
+          Alert.alert(
+            "Please choose the correct type of user (landlord or tenant)"
+          );
+          return;
+        }
 
         // If the user exists in the database, log in
         if (isUser && isCorrectPass) {

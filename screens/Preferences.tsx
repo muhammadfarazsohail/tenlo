@@ -8,12 +8,29 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 
 
-export default function Preferences(){
+export default function Preferences({data}){
+    const [Email, setEmail] = useState("");
+    const [Password, setPassword] = useState("");
+    const [conPassword, setCPassword] = useState("");
+    const [FirstName, setFirstName] = useState("");
+    const [LastName, setLastName] = useState("");
 
+    const [Address, setAddress] = useState("");
+    const [Apartment, setApartment] = useState("");
+    const [Postal, setPostal] = useState("");
+    const [City, setCity] = useState("");
+    const [Province, setProvince] = useState("");
+
+    const [Country, setCountry] = useState("");
+    const [Phone, setPhone] = useState("");
+    const [Tenant, setTenant] = useState("");
+    
 
     return(
         <ScrollView>
-            
+            <Text>Tenants: {data.id} </Text>
+                <Text>Home Details: {data.id} </Text>
+                <Text>Address: {data.id} </Text>
         </ScrollView>
         
     );

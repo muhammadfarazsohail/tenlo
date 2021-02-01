@@ -9,15 +9,15 @@ import { Text, View } from '../components/Themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
-export default function Landlord(){
+export default function Chatroom({data}){
 
 
     return(
         <ScrollView>
             <SafeAreaProvider>
-                <Text>
-                   I am ChatRoom page
-                </Text>
+            <Text>Tenants: {data.id} </Text>
+                <Text>Home Details: {data.id} </Text>
+                <Text>Address: {data.id} </Text>
             </SafeAreaProvider>
         </ScrollView>
     );

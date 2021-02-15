@@ -53,6 +53,7 @@ function writeUserData(fname, lname, email, passwd, conPassword, isEnabled) {
         if (emailData === email) {
           // User found in database
           doesUserExist = true;
+          
           // The following return breaks out of the forEach (we don't want to continue iterating after we found the email)
           return true;
         }

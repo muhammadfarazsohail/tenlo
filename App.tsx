@@ -6,6 +6,7 @@ import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import firebase from "firebase";
+import Chat from "./screens/Chat";
 
 var firebaseConfig = {
   apiKey: "AIzaSyCRFEKyWJ3ajV-TiXCaXtD0DdqO3g75CyA",
@@ -31,7 +32,7 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
+        <Chat data />
         <StatusBar />
       </SafeAreaProvider>
     );

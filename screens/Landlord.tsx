@@ -9,7 +9,7 @@ import { Text, View } from '../components/Themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
-export default function Landlord({data}){
+export default function Landlord({props}){
 
 
     return(

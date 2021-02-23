@@ -9,9 +9,9 @@ import { Text, View } from '../components/Themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
-export default function Chatroom({data}){
+export default function Chatroom({props}){
 
-
+const data=props.router.params;
     return(
         <ScrollView>
             <SafeAreaProvider>

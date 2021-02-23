@@ -9,7 +9,7 @@ import { Text, View } from '../components/Themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
-export default function Tenants({data}){//{navigation,route}
+export default function Tenants({props}){//{navigation,route}
 
    
 

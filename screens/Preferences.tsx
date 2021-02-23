@@ -6,77 +6,29 @@ import { ScrollView, TextInput } from 'react-native-gesture-handler';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
-export default function Preferences({data}){
+export default function Preferences({props}){
     const [Email, setEmail] = useState("");
-    const [Password, setPassword] = useState("");
-    const [conPassword, setCPassword] = useState("");
     const [FirstName, setFirstName] = useState("");
     const [LastName, setLastName] = useState("");
 
-    const [Address, setAddress] = useState("");
-    const [Apartment, setApartment] = useState("");
-    const [Postal, setPostal] = useState("");
-    const [City, setCity] = useState("");
-    const [Province, setProvince] = useState("");
-
-    const [Country, setCountry] = useState("");
-    const [Phone, setPhone] = useState("");
+    
     const [Tenant, setTenant] = useState("");
     
 
     return(
+      <SafeAreaProvider>
         <ScrollView>
-            {/* FirstName placeholder*/}
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.TextInput}
-            placeholder="First Name"
-            placeholderTextColor="#003f5c"
-            onChangeText={(FirstName) => setFirstName(FirstName)}
-          />
-        </View>
-        {/* Email placeholder*/}
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.TextInput}
-            placeholder="Last Name"
-            placeholderTextColor="#003f5c"
-            onChangeText={(LastName) => setLastName(LastName)}
-          />
-        </View>
-        {/* Email placeholder*/}
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.TextInput}
-            placeholder="Email"
-            placeholderTextColor="#003f5c"
-            onChangeText={(Email) => setEmail(Email)}
-          />
-        </View>
-        {/* Password placeholder*/}
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.TextInput}
-            placeholder="Password"
-            placeholderTextColor="#003f5c"
-            secureTextEntry={true}
-            onChangeText={(Password) => setPassword(Password)}
-          />
-        </View>
-        {/* confirm Password  placeholder*/}
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.TextInput}
-            placeholder="Confirm Password"
-            placeholderTextColor="#003f5c"
-            secureTextEntry={true}
-            onChangeText={(conPassword) => setCPassword(conPassword)}
-          />
-          </View>
+        <TouchableOpacity
+          style={styles.loginBtn}
+          onPress={() => props.navigation.navigate("changePassword") }
+        >
+          <Text style={styles.loginText}>Log In</Text>
+        </TouchableOpacity>
         </ScrollView>
-        
+        </SafeAreaProvider>
     );
 
 }

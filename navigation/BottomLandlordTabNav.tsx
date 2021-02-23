@@ -12,9 +12,9 @@ import { BottomLandlordTabParamList, TabOneLandlordParamList, TabTwoPostingParam
 
 const BottomTab = createBottomTabNavigator(); //<BottomLandlordTabParamList>
 
-export default function BottomLandlordTabNav({route,props}) {
+export default function BottomLandlordTabNav({props}) {
   const colorScheme = useColorScheme();
-  const data=route.params;
+  //const data=route.params;
   return (
     <BottomTab.Navigator
       initialRouteName="Landlord"
@@ -23,7 +23,7 @@ export default function BottomLandlordTabNav({route,props}) {
       <BottomTab.Screen
         name="Landlord"
         // component={LandlordNavigator}
-        children={()=><LandlordNavigator data={data}/>}
+        children={()=><LandlordNavigator props={props}/>}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="person-circle-outline" color={color} />,
         }}
@@ -38,7 +38,7 @@ export default function BottomLandlordTabNav({route,props}) {
       <BottomTab.Screen
         name="Chats"
         // component={ChatRoomNav}
-        children={()=><ChatRoomNav data={data}/>}
+        children={()=><ChatRoomNav props={props}/>}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="chatbox-ellipses-outline" color={color} />,
         }}
@@ -47,7 +47,7 @@ export default function BottomLandlordTabNav({route,props}) {
 <BottomTab.Screen
         name="Preferences"
         // component={ChatRoomNav}
-        children={()=><PreferencesNav data={data}/>}
+        children={()=><PreferencesNav props={props}/>}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="Settings" color={color} />,
         }}
@@ -66,13 +66,13 @@ function TabBarIcon(props: { name: string; color: string }) {
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const TabOneStack = createStackNavigator<TabOneLandlordParamList>();
 
-function LandlordNavigator({data}) {
+function LandlordNavigator({props}) {
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
         name="LandlordScreen"
         // component={Landlord}
-        children={()=><Landlord data={data}/>}
+        children={()=><Landlord props={props}/>}
         options={{ headerTitle: 'Landlord' }}
       />
     </TabOneStack.Navigator>
@@ -81,28 +81,28 @@ function LandlordNavigator({data}) {
 
 const TabTwoStack = createStackNavigator<TabTwoPostingParamList>();
 
-function PostingNavigator({data}) {
-  return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="PostingScreen"
-        // component={Postings}
-        children={()=><Postings data={data}/>}
-        options={{ headerTitle: 'Postings' }}
-      />
-    </TabTwoStack.Navigator>
-  );
-}
+// function PostingNavigator({props}) {
+//   return (
+//     <TabTwoStack.Navigator>
+//       <TabTwoStack.Screen
+//         name="PostingScreen"
+//         // component={Postings}
+//         children={()=><Postings props={props}/>}
+//         options={{ headerTitle: 'Postings' }}
+//       />
+//     </TabTwoStack.Navigator>
+//   );
+// }
 
 const TabThreeStack = createStackNavigator();
 
-function ChatRoomNav({data}) {
+function ChatRoomNav({props}) {
   return (
     <TabThreeStack.Navigator>
       <TabThreeStack.Screen
         name="ChatRoomScreen"
         // component={ChatRoom}
-        children={()=><ChatRoom data={data} />}
+        children={()=><ChatRoom props={props} />}
         options={{ headerTitle: 'ChatRoom' }}
       />
     </TabThreeStack.Navigator>
@@ -111,13 +111,13 @@ function ChatRoomNav({data}) {
 
 const Tab4Stack = createStackNavigator();
 
-function PreferencesNav({data}) {
+function PreferencesNav({props}) {
   return (
     <Tab4Stack.Navigator>
       <Tab4Stack.Screen
         name="PreferencesScreen"
         
-        children={()=><Preference data={data} />}
+        children={()=><Preference props={props} />}
         options={{ headerTitle: 'Preferences' }}
       />
     </Tab4Stack.Navigator>

@@ -11,13 +11,13 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function Chatroom({props}){
 
-const data=props.router.params;
+// const data=props.router.params;
     return(
         <ScrollView>
             <SafeAreaProvider>
-            <Text>Tenants: {data.id} </Text>
-                <Text>Home Details: {data.id} </Text>
-                <Text>Address: {data.id} </Text>
+            <Text>Tenants:  </Text>
+                <Text>Home Details:  </Text>
+                <Text>Address:  </Text>
             </SafeAreaProvider>
         </ScrollView>
     );

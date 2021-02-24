@@ -12,7 +12,7 @@ import { BottomLandlordTabParamList, TabOneLandlordParamList, TabTwoPostingParam
 
 const BottomTab = createBottomTabNavigator(); //<BottomLandlordTabParamList>
 
-export default function BottomLandlordTabNav({props}) {
+export default function BottomLandlordTabNav(props) {
   const colorScheme = useColorScheme();
   //const data=route.params;
   return (

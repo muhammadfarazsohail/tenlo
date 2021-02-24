@@ -25,7 +25,13 @@ export default function Preferences({props}){
           style={styles.loginBtn}
           onPress={() => props.navigation.navigate("changePassword") }
         >
-          <Text style={styles.loginText}>Log In</Text>
+          <Text style={styles.loginText}>Change your Password</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.loginBtn}
+          onPress={() => props.navigation.navigate("changeAddress") }
+        >
+          <Text style={styles.loginText}>Add or change Address Details</Text>
         </TouchableOpacity>
         </ScrollView>
         </SafeAreaProvider>

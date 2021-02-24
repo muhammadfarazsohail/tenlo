@@ -13,7 +13,7 @@ import BottomTabNavigator from './BottomTabNavigator';
 
 const TenBottomTab = createBottomTabNavigator(); //<BottomTenantTabParamList>
 
-export default function BottomTenantTabNav({props}){
+export default function BottomTenantTabNav(props){
   const colorScheme = useColorScheme();
 //const data=route.params;
     return(

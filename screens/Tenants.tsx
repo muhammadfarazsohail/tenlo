@@ -19,9 +19,9 @@ export default function Tenants({props}){//{navigation,route}
     return(
         <ScrollView>
             <SafeAreaProvider>
-                <Text>Tenants: {data.id} </Text>
-                <Text>Home Details: {data.id} </Text>
-                <Text>Address: {data.id} </Text>
+                <Text>Tenants: {props.route.params.id} </Text>
+                <Text>Home Details: {props.route.params.id} </Text>
+                <Text>Address: {props.route.params.id} </Text>
             </SafeAreaProvider>
 
            

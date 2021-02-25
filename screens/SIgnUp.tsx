@@ -53,7 +53,7 @@ function writeUserData(fname, lname, email, passwd, conPassword, isEnabled) {
         if (emailData === email) {
           // User found in database
           doesUserExist = true;
-          
+
           // The following return breaks out of the forEach (we don't want to continue iterating after we found the email)
           return true;
         }
@@ -66,22 +66,38 @@ function writeUserData(fname, lname, email, passwd, conPassword, isEnabled) {
         Alert.alert("User with this email already exists");
         return;
       }
-      query
-        .push({
-          fname,
-          lname,
-          email,
-          passwd,
-          userType,
-        })
-        .then((data) => {
-          //success callback
-          console.log("data ", data);
-          Alert.alert("Registration Successful!");
-        })
-        .catch((error) => {
-          //error callback
-          console.log("error ", error);
+
+      firebase
+        .database()
+        .ref("currID")
+        .once("value")
+        .then(function (snapshot) {
+          // Get ID
+          let id = snapshot.val();
+          console.log(id);
+          let newQuery = firebase.database().ref("Users/" + id);
+          // Set entry with ID
+          newQuery
+            .set({
+              id,
+              fname,
+              lname,
+              email,
+              passwd,
+              userType,
+            })
+            .then((data) => {
+              //success callback
+              console.log("data ", data);
+              Alert.alert("Registration Successful!");
+            })
+            .catch((error) => {
+              //error callback
+              console.log("error ", error);
+            });
+          // Update currID (for next entry)
+          let currID = id + 1;
+          firebase.database().ref().update({ currID });
         });
     })
     .catch((error) => {

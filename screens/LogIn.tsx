@@ -90,7 +90,7 @@ export default function LogIn({ navigation, route }) {
   }
 
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor:"white"}}>
       <View style={styles.container}>
         <View>
           <Image
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   },
   inputView: {
     backgroundColor: "#D0F0C0",
-    borderRadius: 30,
+    borderRadius: 0,
     width: "70%",
     height: 45,
     marginBottom: 20,

@@ -10,6 +10,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
 export default function Preferences({props}){
+    
     const [Email, setEmail] = useState("");
     const [FirstName, setFirstName] = useState("");
     const [LastName, setLastName] = useState("");
@@ -20,7 +21,8 @@ export default function Preferences({props}){
 
     return(
       <SafeAreaProvider>
-        <ScrollView>
+        <ScrollView style={{backgroundColor:"white"}}>
+          <View style={styles.container}>
         <TouchableOpacity
           style={styles.loginBtn}
           onPress={() => props.navigation.navigate("changePassword") }
@@ -33,6 +35,7 @@ export default function Preferences({props}){
         >
           <Text style={styles.loginText}>Add or change Address Details</Text>
         </TouchableOpacity>
+        </View>
         </ScrollView>
         </SafeAreaProvider>
     );
@@ -64,7 +67,7 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     width: "80%",
-    borderRadius: 25,
+    borderRadius: 0,
     height: 50,
     alignItems: "center",
     justifyContent: "center",

@@ -14,8 +14,10 @@ export default function changeAddress() {
     const [Country, setCountry] = useState("");
     const [Phone, setPhone] = useState("");
     return(
-        <SafeAreaProvider>
+        <SafeAreaProvider style={{backgroundColor:"white"}}>
         <ScrollView>
+          <View style={styles.container}>
+            <Text>Address Preferences</Text>
             {/**address */}
             <View style={styles.inputView}>
           <TextInput
@@ -86,7 +88,7 @@ export default function changeAddress() {
             onChangeText={(Phone) => setPhone(Phone)}
           />
         </View>
-            
+        </View>
         </ScrollView>
     </SafeAreaProvider>
 
@@ -128,7 +130,7 @@ const styles = StyleSheet.create({
     },
     inputView: {
       backgroundColor: "#D0F0C0",
-      borderRadius: 30,
+      borderRadius: 0,
       width: "70%",
       height: 45,
       marginBottom: 20,

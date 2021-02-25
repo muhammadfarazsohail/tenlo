@@ -114,7 +114,7 @@ export default function SignUp() {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor:"white"}}>
       <View style={styles.container}>
         <Image
           style={styles.tinyLogo}
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
   },
   inputView: {
     backgroundColor: "#D0F0C0",
-    borderRadius: 30,
+    borderRadius: 0,
     width: "70%",
     height: 45,
     marginBottom: 20,

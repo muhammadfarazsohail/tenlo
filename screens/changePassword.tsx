@@ -12,8 +12,9 @@ export default function changePassword() {
   const [conPassword, setCPassword] = useState("");
 
 return(
-    <SafeAreaProvider>
-<ScrollView>
+    <SafeAreaProvider style={{paddingTop:100,backgroundColor:"white"}}>
+<ScrollView style={{backgroundColor:"white"}}>
+  <View style={styles.container}>
   {/* OldPassword placeholder*/}
 <View style={styles.inputView}>
           <TextInput
@@ -43,6 +44,7 @@ return(
             secureTextEntry={true}
             onChangeText={(conPassword) => setCPassword(conPassword)}
           />
+          </View>
           </View>
 </ScrollView>
 </SafeAreaProvider>
@@ -85,7 +87,7 @@ const styles = StyleSheet.create({
     },
     inputView: {
       backgroundColor: "#D0F0C0",
-      borderRadius: 30,
+      borderRadius: 0,
       width: "70%",
       height: 45,
       marginBottom: 20,

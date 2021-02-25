@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+
     justifyContent: "center",
   },
   title: {
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
   },
   inputView: {
     backgroundColor: "#D0F0C0",
-    borderRadius: 30,
+    borderRadius: 0,
     width: "70%",
     height: 45,
     marginBottom: 20,

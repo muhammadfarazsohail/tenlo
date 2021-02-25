@@ -13,13 +13,21 @@ export default function Chatroom({props}){
 
 // const data=props.router.params;
     return(
+        <SafeAreaProvider>
         <ScrollView>
-            <SafeAreaProvider>
-            <Text>Tenants:  </Text>
-                <Text>Home Details:  </Text>
-                <Text>Address:  </Text>
-            </SafeAreaProvider>
+            {/* {props.r.a.map(props.r.a =>)} */}
+                
+                <TouchableOpacity 
+            // onPress={()=>{props.navigation.navigate("Chats",{props.route.params})}}
+            >
+                <Text>{props.route.params.name}</Text>
+            </TouchableOpacity>
+                
+            
+            
         </ScrollView>
+        </SafeAreaProvider>
+
     );
 
 }

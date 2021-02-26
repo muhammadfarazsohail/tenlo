@@ -17,11 +17,15 @@ export default function Tenants({props}){//{navigation,route}
 //console.log(data);
 
     return(
-        <ScrollView>
+        <ScrollView style={{backgroundColor:"white"}}>
             <SafeAreaProvider>
-                <Text>Tenants: {props.route.params.id} </Text>
-                <Text>Home Details: {props.route.params.id} </Text>
-                <Text>Address: {props.route.params.id} </Text>
+                <Text style={styles.title}>Name </Text>
+                <Text>{props.route.params.id} </Text>
+                <Text style={styles.title}>Rented House </Text>
+                <Text>{props.route.params.id} </Text>
+                <Text style={styles.title}>Landlord</Text>
+                <Text><TouchableOpacity style={styles.loginBtn}><Text>Landlord Info </Text></TouchableOpacity></Text>
+                
             </SafeAreaProvider>
 
            
@@ -41,6 +45,7 @@ const styles = StyleSheet.create({
     title: {
       fontSize: 20,
       fontWeight: "bold",
+      color:"#006400"
     },
     separator: {
       marginVertical: 30,
@@ -56,12 +61,12 @@ const styles = StyleSheet.create({
       marginBottom: 30,
     },
     loginBtn: {
-      width: "80%",
-      borderRadius: 25,
-      height: 50,
+      width: "50%",
+      borderRadius: 0,
+      height: 20,
       alignItems: "center",
       justifyContent: "center",
-      marginTop: 40,
+      marginTop: 10,
       backgroundColor: "#C8F902",
     },
     inputView: {

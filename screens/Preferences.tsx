@@ -11,9 +11,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function Preferences({props}){
     
-    const [Email, setEmail] = useState("");
-    const [FirstName, setFirstName] = useState("");
-    const [LastName, setLastName] = useState("");
+   
 
     
     const [Tenant, setTenant] = useState("");
@@ -34,6 +32,18 @@ export default function Preferences({props}){
           onPress={() => props.navigation.navigate("changeAddress") }
         >
           <Text style={styles.loginText}>Add or change Address Details</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.loginBtn}
+          onPress={() => props.navigation.navigate("Personalinfo") }
+        >
+          <Text style={styles.loginText}>Change your Personal Information</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.loginBtn}
+          onPress={() => props.navigation.navigate("Root") }
+        >
+          <Text style={styles.loginText}>Log Out</Text>
         </TouchableOpacity>
         </View>
         </ScrollView>

@@ -49,7 +49,7 @@ export default function BottomLandlordTabNav(props) {
         // component={ChatRoomNav}
         children={()=><PreferencesNav props={props}/>}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="Settings" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="settings" color={color} />,
         }}
       />
     </BottomTab.Navigator>

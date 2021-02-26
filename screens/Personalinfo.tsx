@@ -3,18 +3,15 @@ import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Text, View } from '../components/Themed';
 import { StyleSheet,Image, Button,Alert, TouchableOpacity } from 'react-native';
-import { useLinkProps } from '@react-navigation/native';
 
 
 
-export default function changePassword(props) {
-    const [OldPassword, setOldPassword] = useState("");
-  const [Password, setPassword] = useState("");
-  const [conPassword, setCPassword] = useState("");
+export default function Personalinfo() {
+    const [Email, setEmail] = useState("");
+    const [FirstName, setFirstName] = useState("");
+    const [LastName, setLastName] = useState("");
 
 return(
-  
-
     <SafeAreaProvider style={{paddingTop:100,backgroundColor:"white"}}>
 <ScrollView style={{backgroundColor:"white"}}>
   <View style={styles.container}>
@@ -22,48 +19,32 @@ return(
 <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
-            placeholder="Old Password"
+            placeholder="Change Your Email"
             placeholderTextColor="#003f5c"
             secureTextEntry={true}
-            onChangeText={(OldPassword) => setOldPassword(OldPassword)}
+            onChangeText={(Email) => setEmail(Email)}
           />
         </View>
 {/* Password placeholder*/}
 <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
-            placeholder="Password"
+            placeholder="Change your First Name"
             placeholderTextColor="#003f5c"
             secureTextEntry={true}
-            onChangeText={(Password) => setPassword(Password)}
+            onChangeText={(FirstName) => setFirstName(FirstName)}
           />
         </View>
         {/* confirm Password  placeholder*/}
         <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
-            placeholder="Confirm Password"
+            placeholder="Change your Last Name"
             placeholderTextColor="#003f5c"
             secureTextEntry={true}
-            onChangeText={(conPassword) => setCPassword(conPassword)}
+            onChangeText={(LastName) => setLastName(LastName)}
           />
           </View>
-          <TouchableOpacity
-          style={styles.loginBtn}
-          onPress={() => {
-            //function here
-          }}
-        >
-          <Text style={styles.loginText}>Confirm Change</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.loginBtn}
-          onPress={() => {
-            props.navigation.navigate("Tenants");
-          }}
-        >
-          <Text style={styles.loginText}>Go Back</Text>
-        </TouchableOpacity>
           </View>
 </ScrollView>
 </SafeAreaProvider>

@@ -13,12 +13,20 @@ export default function Landlord({props}){
 
 
     return(
-        <ScrollView>
+        <ScrollView style={{backgroundColor:"white"}}>
             <SafeAreaProvider>
-                <Text>
-                   I am landlord page
-                </Text>
+                <Text style={styles.title}>Name </Text>
+                <Text>{props.route.params.id} </Text>
+                <Text style={styles.title}>House(s)</Text>
+                <Text>{props.route.params.id} </Text>
+                <Text style={styles.title}>Tenant(s)</Text>
+                <View>
+                <TouchableOpacity style={styles.loginBtn}><Text>Tenants Info</Text></TouchableOpacity>
+                
+                </View>
             </SafeAreaProvider>
+
+           
         </ScrollView>
     );
 
@@ -34,6 +42,7 @@ const styles = StyleSheet.create({
     title: {
       fontSize: 20,
       fontWeight: "bold",
+      color:"#006400"
     },
     separator: {
       marginVertical: 30,
@@ -49,12 +58,12 @@ const styles = StyleSheet.create({
       marginBottom: 30,
     },
     loginBtn: {
-      width: "80%",
-      borderRadius: 25,
+      width: "20%",
+      borderRadius: 0,
       height: 50,
       alignItems: "center",
       justifyContent: "center",
-      marginTop: 40,
+      marginTop: 10,
       backgroundColor: "#C8F902",
     },
     inputView: {
@@ -76,3 +85,4 @@ const styles = StyleSheet.create({
       marginLeft: 20,
     },
   });
+

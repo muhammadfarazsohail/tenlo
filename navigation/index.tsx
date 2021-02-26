@@ -11,6 +11,8 @@ import BottomTenantTabNav from './BottomTenantTabNav';
 import BottomLandlordTabNav from './BottomLandlordTabNav';
 import changePassword from '../screens/changePassword';
 import changeAddress from '../screens/changeAddress';
+import Personalinfo from '../screens/Personalinfo';
+import Preferences from '../screens/Preferences';
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -36,6 +38,8 @@ function RootNavigator() {
       <Stack.Screen name="Landlord" component={BottomLandlordTabNav} />
       <Stack.Screen name="changePassword" component={changePassword} />
       <Stack.Screen name="changeAddress" component={changeAddress} />
+      <Stack.Screen name="Personalinfo" component={Personalinfo} />
+      <Stack.Screen name="Preferences" component={Preferences} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );

@@ -6,7 +6,7 @@ import { StyleSheet,Image, Button,Alert, TouchableOpacity } from 'react-native';
 
 
 
-export default function Personalinfo() {
+export default function Personalinfo(props) {
     const [Email, setEmail] = useState("");
     const [FirstName, setFirstName] = useState("");
     const [LastName, setLastName] = useState("");
@@ -15,6 +15,7 @@ return(
     <SafeAreaProvider style={{paddingTop:100,backgroundColor:"white"}}>
 <ScrollView style={{backgroundColor:"white"}}>
   <View style={styles.container}>
+  <Text style={styles.title}>Personal Information Preferences</Text>
   {/* OldPassword placeholder*/}
 <View style={styles.inputView}>
           <TextInput
@@ -45,6 +46,22 @@ return(
             onChangeText={(LastName) => setLastName(LastName)}
           />
           </View>
+          <TouchableOpacity
+          style={styles.loginBtn}
+          onPress={() => {
+            //function here
+          }}
+        >
+          <Text style={styles.loginText}>Confirm Changes</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.loginBtn}
+          onPress={() => {
+            props.navigation.navigate("Tenants");
+          }}
+        >
+          <Text style={styles.loginText}>Go Back</Text>
+        </TouchableOpacity>
           </View>
 </ScrollView>
 </SafeAreaProvider>
@@ -62,6 +79,8 @@ const styles = StyleSheet.create({
     title: {
       fontSize: 20,
       fontWeight: "bold",
+      color:"#006400",
+      marginBottom:10,
     },
     separator: {
       marginVertical: 30,
@@ -82,7 +101,7 @@ const styles = StyleSheet.create({
       height: 50,
       alignItems: "center",
       justifyContent: "center",
-      marginTop: 40,
+      marginTop: 10,
       backgroundColor: "#C8F902",
     },
     inputView: {

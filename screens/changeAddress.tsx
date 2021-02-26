@@ -4,7 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Text, View } from '../components/Themed';
 import { StyleSheet,Image, Button,Alert, TouchableOpacity } from 'react-native';
 
-export default function changeAddress() {
+export default function changeAddress(props) {
     const [Address, setAddress] = useState("");
     const [Apartment, setApartment] = useState("");
     const [Postal, setPostal] = useState("");
@@ -14,10 +14,10 @@ export default function changeAddress() {
     const [Country, setCountry] = useState("");
     const [Phone, setPhone] = useState("");
     return(
-        <SafeAreaProvider style={{backgroundColor:"white"}}>
+        <SafeAreaProvider style={{paddingTop:100,backgroundColor:"white"}}>
         <ScrollView>
           <View style={styles.container}>
-            <Text>Address Preferences</Text>
+            <Text style={styles.title}>Address Preferences</Text>
             {/**address */}
             <View style={styles.inputView}>
           <TextInput
@@ -88,6 +88,22 @@ export default function changeAddress() {
             onChangeText={(Phone) => setPhone(Phone)}
           />
         </View>
+        <TouchableOpacity
+          style={styles.loginBtn}
+          onPress={() => {
+            //function here
+          }}
+        >
+          <Text style={styles.loginText}>Confirm Changes</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.loginBtn}
+          onPress={() => {
+            props.navigation.navigate("Tenants");
+          }}
+        >
+          <Text style={styles.loginText}>Go Back</Text>
+        </TouchableOpacity>
         </View>
         </ScrollView>
     </SafeAreaProvider>
@@ -105,6 +121,8 @@ const styles = StyleSheet.create({
     title: {
       fontSize: 20,
       fontWeight: "bold",
+      color:"#006400",
+      marginBottom:10,
     },
     separator: {
       marginVertical: 30,
@@ -125,7 +143,7 @@ const styles = StyleSheet.create({
       height: 50,
       alignItems: "center",
       justifyContent: "center",
-      marginTop: 40,
+      marginTop: 10,
       backgroundColor: "#C8F902",
     },
     inputView: {

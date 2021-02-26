@@ -61,9 +61,9 @@ const styles = StyleSheet.create({
       marginBottom: 30,
     },
     loginBtn: {
-      width: "50%",
+      width: "20%",
       borderRadius: 0,
-      height: 20,
+      height: 50,
       alignItems: "center",
       justifyContent: "center",
       marginTop: 10,

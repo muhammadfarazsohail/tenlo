@@ -32,8 +32,8 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        {/* <Chat props /> */}
-        <Navigation colorScheme={colorScheme} />
+        <Chat props />
+        {/*<Navigation colorScheme={colorScheme} />*/}
         <StatusBar />
       </SafeAreaProvider>
     );

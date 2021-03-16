@@ -90,7 +90,7 @@ export default function LogIn({ navigation, route }) {
   }
 
   return (
-    <ScrollView style={{backgroundColor:"white"}}>
+    <ScrollView style={{ backgroundColor: "white" }}>
       <View style={styles.container}>
         <View>
           <Image

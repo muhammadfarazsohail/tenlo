@@ -2,12 +2,17 @@ import React, { useState, useCallback, useEffect } from "react";
 import { GiftedChat } from "react-native-gifted-chat";
 import firebase from "firebase";
 
-export default function Chat({ props }) {
+export default function Chat(props) {
   const [messages, setMessages] = useState([] as any);
 
   // These receiver and sender IDs should eventually passed and retrieved with props
-  let receiverid = 1;
+  let receiverid = props.route.params.recid;
   let senderid = 2;
+  if (receiverid === 1) {
+    senderid = 2;
+  } else {
+    senderid = 1;
+  }
   let idname;
   if (receiverid < senderid) {
     idname = receiverid + "_" + senderid;
@@ -32,6 +37,9 @@ export default function Chat({ props }) {
     //     },
     //   },
     // ]);
+    return () => {
+      messageRef.off();
+    };
   }, []);
 
   function fetchMsg(snapshot) {
@@ -52,11 +60,11 @@ export default function Chat({ props }) {
     setMessages(messageList);
   }
 
-  const onSend = useCallback((messages = []) => {
-    setMessages((previousMessages) =>
-      GiftedChat.append(previousMessages, messages)
-    );
-  }, []);
+  // const onSend = useCallback((messages = []) => {
+  //   setMessages((previousMessages) =>
+  //     GiftedChat.append(previousMessages, messages)
+  //   );
+  // }, []);
 
   return (
     <GiftedChat

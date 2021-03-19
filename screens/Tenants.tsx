@@ -78,8 +78,9 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 10,
+    marginTop: 5,
     backgroundColor: "#C8F902",
+    marginLeft: 3,
   },
   inputView: {
     backgroundColor: "#D0F0C0",

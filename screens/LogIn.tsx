@@ -75,10 +75,10 @@ export default function LogIn({ navigation, route }) {
         if (isUser && isCorrectPass) {
           if (bval) {
             //login for landlord part goes here
-            navigation.navigate("Landlord", { id: 100 });
+            navigation.navigate("Landlord", { id: "Landlord" });
           } else {
             //login for tenants goes here
-            navigation.navigate("Tenants", { id: 100 });
+            navigation.navigate("Tenants", { id: "Tenants" });
           }
         } else {
           Alert.alert("Username or Password is incorrect");

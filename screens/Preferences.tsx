@@ -23,19 +23,19 @@ export default function Preferences({props}){
           <View style={styles.container}>
         <TouchableOpacity
           style={styles.loginBtn}
-          onPress={() => props.navigation.navigate("changePassword") }
+          onPress={() => props.navigation.navigate("changePassword",{id:props.route.params.id}) }
         >
           <Text style={styles.loginText}>Change your Password</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.loginBtn}
-          onPress={() => props.navigation.navigate("changeAddress") }
+          onPress={() => props.navigation.navigate("changeAddress",{id:props.route.params.id}) }
         >
           <Text style={styles.loginText}>Add or change Address Details</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.loginBtn}
-          onPress={() => props.navigation.navigate("Personalinfo") }
+          onPress={() => props.navigation.navigate("Personalinfo",{id:props.route.params.id}) }
         >
           <Text style={styles.loginText}>Change your Personal Information</Text>
         </TouchableOpacity>

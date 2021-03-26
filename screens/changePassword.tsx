@@ -60,7 +60,7 @@ return(
         <TouchableOpacity
           style={styles.loginBtn}
           onPress={() => {
-            props.navigation.navigate("Tenants");
+            props.navigation.navigate(props.route.params.id);
           }}
         >
           <Text style={styles.loginText}>Go Back</Text>

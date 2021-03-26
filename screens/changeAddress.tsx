@@ -99,7 +99,7 @@ export default function changeAddress(props) {
         <TouchableOpacity
           style={styles.loginBtn}
           onPress={() => {
-            props.navigation.navigate("Tenants");
+            props.navigation.navigate(props.route.params.id);
           }}
         >
           <Text style={styles.loginText}>Go Back</Text>

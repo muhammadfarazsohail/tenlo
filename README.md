@@ -28,7 +28,7 @@ npm install email-validator \
 npm install react-native-gifted-chat --save     OR   yarn add react-native-gifted-chat \
 npm install expo-constants          OR      expo install expo-constants \
 npm install expo-font               OR      expo install expo-font \
-npm install expo-linking \
+npm install expo-linking
 
 # then (this will start the project)
 npm start

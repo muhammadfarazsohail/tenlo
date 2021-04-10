@@ -20,7 +20,14 @@ git push <remote> <branch>
 
 
 # To start the project do
-yarn add expo
+yarn add expo   OR   npm add expo
+
+# Various dependencies before running (these can also be installed using yarn and expo install commands)
+npm install email-validator
+npm install react-native-gifted-chat --save     OR   yarn add react-native-gifted-chat
+npm install expo-constants          OR      expo install expo-constants
+npm install expo-font               OR      expo install expo-font
+npm install expo-linking
 
 # then (this will start the project)
 npm start

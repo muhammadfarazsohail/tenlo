@@ -1,7 +1,7 @@
 # Tenlo
 
 # You need npm (installed with Node.js) and expo installed on your PC to run this project
---> sudo apt install npm        (to install npm if not already)
+--> sudo apt install npm        (to install npm if not already)\
 --> npm install --global expo-cli
 
 # For more information on expo installation please visit this site

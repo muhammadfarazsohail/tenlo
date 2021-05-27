@@ -31,9 +31,9 @@ npm install expo-font               OR      expo install expo-font \
 npm install expo-linking
 
 # Compatible versions
-expo install react-native-screens@2.15.2 
-expo install firebase@7.9.0
-expo install expo-linking@2.0.1
+expo install react-native-screens@2.15.2 \
+expo install firebase@7.9.0 \
+expo install expo-linking@2.0.1 \
 
 # then (this will start the project)
 npm start

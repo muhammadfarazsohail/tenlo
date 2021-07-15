@@ -25,9 +25,13 @@ export default function Tenants({ props }) {
     <ScrollView style={{ backgroundColor: "white" }}>
       <SafeAreaProvider>
         <Text style={styles.title}>Name </Text>
-        <Text>{props.route.params.id} </Text>
+        <Text style={styles.TextStyle}>
+          John Doe{/*props.route.params.id*/}{" "}
+        </Text>
         <Text style={styles.title}>Rented House </Text>
-        <Text>{props.route.params.id} </Text>
+        <Text style={styles.TextStyle}>
+          1234 Imagined Street{/*props.route.params.id*/}{" "}
+        </Text>
         <Text style={styles.title}>Landlord</Text>
         <View>
           <TouchableOpacity style={styles.loginBtn}>
@@ -58,6 +62,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     color: "#006400",
+    alignSelf: "center",
   },
   separator: {
     marginVertical: 30,
@@ -73,11 +78,14 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   loginBtn: {
-    width: "20%",
+    width: "30%",
+    borderWidth: 1,
+    borderColor: "green",
     borderRadius: 0,
-    height: 50,
+    height: 40,
     alignItems: "center",
     justifyContent: "center",
+    alignSelf: "center",
     marginTop: 5,
     backgroundColor: "#C8F902",
     marginLeft: 3,
@@ -98,5 +106,8 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     marginLeft: 20,
+  },
+  TextStyle: {
+    alignSelf: "center",
   },
 });
